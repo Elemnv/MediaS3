@@ -1,0 +1,36 @@
+body{
+    font-size: 20px;
+    font-family: Arial;
+}
+.flex-block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 500px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+button{
+    width: 300px;
+}
+
+li{
+    list-style: none;
+}
+
+.item{
+    color: green;
+}
+.item-err{
+    color: red;
+}
+
+.er-nm{
+    color: black;
+    text-transform: uppercase;
+}
