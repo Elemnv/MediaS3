@@ -10,54 +10,54 @@ function valid(array $post): array
 
 
 
-    if (!empty($post['name']) && !empty($post['surname']) && !empty($post['login']) && !empty($post['password'])) {
-        $name = trim($post['name']); 
-        $surname = trim($post['surname']);
+    if (!empty($post['login']) && !empty($post['password']) && !empty($post['firstName']) && !empty($post['lastName'])) {
         $login = trim($post['login']);
         $password = trim($post['password']);
+        $firstName = trim($post['firstName']);
+        $lastName = trim($post['lastName']);
 
         $constrains = [
-            'name' => preg_match("/^[а-яА-Я ]*$/", $name),
-            'surname' => preg_match("/^[а-яА-Я ]*$/", $surname),
-            'login' => 7,
-            'password' => 15 
+            'login' => 8,
+            'password' => 13,
+            'firstName' => preg_match("/^[а-яА-Я ]*$/", $firstName),
+            'lastName' => preg_match("/^[а-яА-Я ]*$/", $lastName)
         ];
 
 
-        $validateForm = valigData($surname, $name, $login, $password,  $constrains);
-
-        if (!$validateForm['name']) {
-            $validate['error'] = true;
-            array_push($validate['messages'],
-                "<span class='er-nm'>"."Имя {$name} введено неккоректно"."</span>");
-        }
-
-        if (!$validateForm['surname']) {
-            $validate['error'] = true;
-            array_push($validate['messages'],
-                "<span class='er-nm'>"."Фамилия {$surname} введена неккоректно"."</span>");
+        $validateForm = valigData($login, $password, $firstName, $lastName, $constrains);
 
         if (!$validateForm['login']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "Логин должен содержать не меннее чем {$constrains['login']} символов");
+                "логин должен быть длиной не менее чем {$constrains['login']} символов");
         }
 
         if (!$validateForm['password']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "Пароль должен содержать не менее чем {$constrains['password']} символов");
+                "пароль должен быть длиной не менее чем {$constrains['password']} символов");
         }
 
+        if (!$validateForm['firstName']) {
+            $validate['error'] = true;
+            array_push($validate['messages'],
+                "имя должно содержать русские только буквы и пробелы!"."<span class='er-nm'>"."{$firstName} неккоректно"."</span>");
+        }
+
+        if (!$validateForm['lastName']) {
+            $validate['error'] = true;
+            array_push($validate['messages'],
+                "фамилия должна содержать только русские буквы и пробелы! "."<span class='er-nm'>"."{$lastName} неккоректно"."</span>");
         }
         if (!$validate['error']){
             $validate['success'] = true;
             array_push($validate['messages'],
-            "Ваше имя:{$name}",
-            "Ваша фамилия:{$surname}",
+            "Ваше имя:{$firstName}",
+            "Ваша фамилия:{$lastName}",
             "Ваш логин:{$login}",
             "Ваш пароль:{$password}"
-        );
+
+            );
         }
         return $validate;
     }
@@ -66,24 +66,14 @@ function valid(array $post): array
 }
 
 
-function valigData(string $name,string $surname, string $login, string $password,array $constrains): array{
+function valigData(string $login, string $password,string $firstName,string $lastName,array $constrains): array{
 
     $validateForm = [
-        'name' => true,
-        'surname' => true,
         'login' => true,
         'password' => true,
-
+        'firstName' => true,
+        'lastName' => true,
     ];
-
-    
-    if (!preg_match('/^[а-яё ]++$/ui',$name)) {
-        $validateForm['name'] = false;
-    }
-
-    if (!preg_match('/^[а-яё ]++$/ui',$surname)) {
-        $validateForm['surname'] = false;
-    }
 
     if (strlen($login) < $constrains['login']) {
         $validateForm['login'] = false;
@@ -93,6 +83,13 @@ function valigData(string $name,string $surname, string $login, string $password
         $validateForm['password'] = false;
     }
 
+    if (!preg_match('/^[а-яё ]++$/ui',$firstName)) {
+        $validateForm['firstName'] = false;
+    }
+
+    if (!preg_match('/^[а-яё ]++$/ui',$lastName)) {
+        $validateForm['lastName'] = false;
+    }
 
     return $validateForm;
 
