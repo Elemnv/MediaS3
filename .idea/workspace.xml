@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b4344af-da8d-4625-9c4a-bca185bad9d5" name="Default Changelist" comment="Итог">
+    <list default="true" id="9b4344af-da8d-4625-9c4a-bca185bad9d5" name="Default Changelist" comment="итог">
       <change afterPath="$PROJECT_DIR$/.idea/localhost.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
@@ -76,7 +76,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="почти готово" />
-    <option name="LAST_COMMIT_MESSAGE" value="почти готово" />
+    <MESSAGE value="итог" />
+    <option name="LAST_COMMIT_MESSAGE" value="итог" />
   </component>
 </project>
