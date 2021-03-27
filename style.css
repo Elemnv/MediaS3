@@ -1,5 +1,5 @@
 body{
-    font-size: 20px;
+    font-size: 40px;
     font-family: Arial;
 }
 .flex-block{
@@ -12,7 +12,7 @@ body{
 input{
     width: 500px;
     height: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 button{
@@ -24,10 +24,10 @@ li{
 }
 
 .item{
-    color: green;
+    color: rgb(14, 223, 14);
 }
 .item-err{
-    color: red;
+    color: rgb(255, 30, 30);
 }
 
 .er-nm{
