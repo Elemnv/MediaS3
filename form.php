@@ -29,25 +29,25 @@ function valid(array $post): array
         if (!$validateForm['login']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "логин должен быть длиной не менее чем {$constrains['login']} символов");
+                "Логин должен содержать не менее {$constrains['login']} символов");
         }
 
         if (!$validateForm['password']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "пароль должен быть длиной не менее чем {$constrains['password']} символов");
+                "Пароль должен содержать не менее {$constrains['password']} символов");
         }
 
         if (!$validateForm['firstName']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "имя должно содержать русские только буквы и пробелы!"."<span class='er-nm'>"."{$firstName} неккоректно"."</span>");
+                "<span class='er-nm'>"."Введенное имя {$firstName} неккоректно"."</span>");
         }
 
         if (!$validateForm['lastName']) {
             $validate['error'] = true;
             array_push($validate['messages'],
-                "фамилия должна содержать только русские буквы и пробелы! "."<span class='er-nm'>"."{$lastName} неккоректно"."</span>");
+             "<span class='er-nm'>"."Введенная фамилия {$lastName} неккоректна"."</span>");
         }
         if (!$validate['error']){
             $validate['success'] = true;
